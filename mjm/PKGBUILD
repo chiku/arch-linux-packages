@@ -3,16 +3,16 @@
 pkgname="mjm"
 pkgver="1.1"
 _internalname="mjwm"
-_internalversion="1.0"
-pkgrel="4"
-pkgdesc="create jwm's menu"
+_internalversion="1.1"
+pkgrel="5"
+pkgdesc="Create jwm's menu from desktop files"
 arch=("i686" "x86_64")
 url="https://github.com/chiku/mjwm"
 license=("GPL2")
 optdepends=("jwm: for using generated menu")
 source=("https://github.com/chiku/${_internalname}/archive/v${_internalversion}.tar.gz")
-md5sums=("e16007bf6b5ec26c71d186c2b7bc38a8")
-sha1sums=("d2299b505fa80f981930e09cfae3b842ce3df8c0")
+md5sums=("fa0fd508a0856e8a40f9ff31823da83e")
+sha1sums=("fd221a3d6052a220b8827a0ee68953b021df96b9")
 
 build() {
   cd "$srcdir/${_internalname}-${_internalversion}"
@@ -24,7 +24,7 @@ build() {
 }
 
 package() {
-  cd "$srcdir/${_internalname}-${_internalversion}"
+  cd "$srcdir/${_internalname}-${_internalversion}"/src
 
   make DESTDIR="$pkgdir" install
   cd ${pkgdir}/usr/bin
